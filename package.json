@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "angular-cli": "1.0.0-beta.8",
+    "bootstrap-sass": "^3.3.6",
     "codelyzer": "0.0.20",
     "ember-cli-inject-live-reload": "1.4.0",
     "jasmine-core": "2.4.1",
@@ -36,6 +37,7 @@
     "karma": "0.13.22",
     "karma-chrome-launcher": "0.2.3",
     "karma-jasmine": "0.3.8",
+    "node-sass": "^3.8.0",
     "protractor": "3.3.0",
     "ts-node": "0.5.5",
     "tslint": "3.11.0",
