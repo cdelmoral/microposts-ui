@@ -11,5 +11,6 @@ export const PagesRoutes: RouterConfig = [
   { path: 'home',  component: HomeComponent },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
+  { path: 'sign-up', redirectTo: '/home' } // TODO: remove sign-up holder
 ];
