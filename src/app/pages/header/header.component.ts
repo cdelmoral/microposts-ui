@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import {Component} from '@angular/core';
+import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 import {AuthService} from '../../auth';
 
 @Component({
@@ -9,11 +9,13 @@ import {AuthService} from '../../auth';
   styleUrls: ['header.component.css'],
   directives: [ ROUTER_DIRECTIVES ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, public router: Router) {}
 
-  ngOnInit() {
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 
 }

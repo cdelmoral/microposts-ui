@@ -33,6 +33,7 @@
 
         <li>
           <a [routerLink]="['/login']" *ngIf="!authService.isLoggedIn">Log in</a>
+          <a *ngIf="authService.isLoggedIn" (click)="logout()">Log out</a>
         </li>
       </ul>
     </nav>

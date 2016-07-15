@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthService} from '../';
 
 @Component({
   moduleId: module.id,
@@ -6,11 +8,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: 'login.component.html',
   styleUrls: ['login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() {}
+  constructor(public authService: AuthService, public router: Router) {}
 
-  ngOnInit() {
+  login() {
+    this.authService.login().subscribe(() => {
+      if (this.authService.isLoggedIn) {
+        this.router.navigate(['/home']);
+      }
+    });
   }
 
+  logout() {
+    this.authService.logout();
+  }
 }
