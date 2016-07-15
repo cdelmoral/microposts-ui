@@ -6,9 +6,9 @@ import {
   ContactComponent
 } from './';
 
-export const PagesRoutes: RouterConfig = [
-  { path: '', redirectTo: '/home' },
-  { path: 'home',  component: HomeComponent },
+export const pagesRoutes: RouterConfig = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
   { path: 'help', component: HelpComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
