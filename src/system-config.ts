@@ -40,6 +40,8 @@ const barrels: string[] = [
   'app/pages/footer',
   'app/pages/about',
   'app/pages/contact',
+  'app/auth',
+  'app/auth/login',
   /** @cli-barrel */
 ];
 

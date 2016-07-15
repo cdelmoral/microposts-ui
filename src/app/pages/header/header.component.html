@@ -31,9 +31,9 @@
           </ul>
         </li> -->
 
-        <!-- <li ng-if="!ctrl.userLoggedIn">
-          <a href="#/login">Log in</a>
-        </li> -->
+        <li>
+          <!-- a [routerLink]="['/login']" *ngIf="!authService.isLoggedIn">Log in</a -->
+        </li>
       </ul>
     </nav>
   </div>
