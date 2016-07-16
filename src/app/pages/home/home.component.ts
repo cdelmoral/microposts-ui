@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { AuthService } from '../../auth/';
 
 @Component({
   moduleId: module.id,
@@ -8,11 +9,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
   styleUrls: ['home.component.css'],
   directives: [ ROUTER_DIRECTIVES ]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() {}
-
-  ngOnInit() {
-  }
+  constructor(public authService: AuthService) {}
 
 }
