@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+// import {NgForm} from '@angular/forms';
 import {AuthService} from '../';
 
 @Component({
@@ -9,18 +10,21 @@ import {AuthService} from '../';
   styleUrls: ['login.component.css']
 })
 export class LoginComponent {
+  
+  public loginForm: Form = new Form();
 
   constructor(public authService: AuthService, public router: Router) {}
-
-  login() {
+  
+  onSubmit() {
     this.authService.login().subscribe(() => {
       if (this.authService.isLoggedIn) {
         this.router.navigate(['/home']);
       }
     });
   }
+}
 
-  logout() {
-    this.authService.logout();
-  }
+class Form {
+  public email: string;
+  public password: string;
 }

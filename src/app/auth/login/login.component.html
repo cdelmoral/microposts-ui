@@ -2,21 +2,29 @@
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <form name="login">
+    <form name="login" (ngSubmit)="onSubmit()" #form="ngForm">
       <div class="form-group">
         <label for="email" class="control-label">Email</label>
-        <input id="email" name="email" class="form-control"
-               type="email" placeholder="Email" autofocus="true" required>
+        <input id="email" name="email" class="form-control" type="email" placeholder="Email"
+               autofocus="true" required [(ngModel)]="loginForm.email" #email="ngModel">
+      </div>
+      
+      <div class="help-error" role="alert" [hidden]="email.valid || email.untouched">
+        Email is required
       </div>
 
       <div class="form-group">
         <label for="password" class="control-label">Password</label>
         <!-- <a href="#/password_resets">(forgot password)</a> -->
-        <input id="password" name="password" class="form-control"
-               type="password" placeholder="Password" required>
+        <input id="password" name="password" class="form-control"  type="password" placeholder="Password"
+               required [(ngModel)]="loginForm.password" #password="ngModel">
+      </div>
+      
+      <div class="help-error" role="alert" [hidden]="password.valid || password.untouched">
+        Password is required
       </div>
 
-      <input type="submit" (click)="login()" class="btn btn-primary" value="Log in">
+      <input type="submit" class="btn btn-primary" value="Log in" [disabled]="!form.form.valid">
     </form>
 
     <!-- <p>New user? <a href="#/sign-up">Sign up now!</a></p> -->

@@ -154,15 +154,27 @@ input {
   height: auto !important;
 }
 
-.help-error div {
+input[type=submit] {
+  margin-top: 24px;
+}
+
+.help-error {
   @extend small;
   color: $error-red;
-  margin-top: -17px;
+  margin-top: -2.22%;
   text-align: right;
 }
 
 .form-group {
   margin-bottom: 20px;
+}
+
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
 }
 
 /* Users index */
