@@ -1,19 +1,31 @@
 import { Injectable } from '@angular/core';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/delay';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
+  private loginUrl: string = 'https://angularjstutorial-staging.herokuapp.com/api/sessions';
+  
   isLoggedIn: boolean = false;
-
-  login() {
-    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+  
+  constructor (private http: Http) {}
+  
+  public async login(email: String, password: String): Promise<Object> {
+    let body = JSON.stringify({ email, password });
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    
+    try {
+      let response = await this.http.post(this.loginUrl, body, options).toPromise();
+      this.isLoggedIn = true;
+      let bodyResponse = response.json();
+      return bodyResponse;
+    } catch(e) {
+      throw e;
+    }
   }
-
-  logout() {
+  
+  public logout() {
     this.isLoggedIn = false;
   }
 }

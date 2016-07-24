@@ -15,12 +15,13 @@ export class LoginComponent {
 
   constructor(public authService: AuthService, public router: Router) {}
   
-  onSubmit() {
-    this.authService.login().subscribe(() => {
-      if (this.authService.isLoggedIn) {
-        this.router.navigate(['/home']);
-      }
-    });
+  public async onSubmit() {
+    try {
+      let user = await this.authService.login(this.loginForm.email, this.loginForm.password);
+      this.router.navigate(['/home']);
+    } catch(e) {
+      console.log(e);
+    }
   }
 }
 
