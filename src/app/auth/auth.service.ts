@@ -4,28 +4,37 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AuthService {
-  private loginUrl: string = 'https://angularjstutorial-staging.herokuapp.com/api/sessions';
   
-  isLoggedIn: boolean = false;
+  public currentUser: Object;
+  public isLoggedIn: boolean = false;
+  
+  private loginUrl: string = 'https://angularjstutorial-staging.herokuapp.com/api/sessions';
+  private options: RequestOptions =
+    new RequestOptions({ headers: new Headers({ 'Content-Type' : 'application/json '}) });
   
   constructor (private http: Http) {}
   
   public async login(email: String, password: String): Promise<Object> {
     let body = JSON.stringify({ email, password });
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
     
     try {
-      let response = await this.http.post(this.loginUrl, body, options).toPromise();
+      let response = await this.http.post(this.loginUrl, body, this.options).toPromise();
       this.isLoggedIn = true;
-      let bodyResponse = response.json();
-      return bodyResponse;
+      this.currentUser = response.json();
+      return this.currentUser;;
     } catch(e) {
       throw e;
     }
   }
   
-  public logout() {
-    this.isLoggedIn = false;
+  public async logout(): Promise<Object> {
+    try {
+      let response = await this.http.delete(this.loginUrl + '/logout').toPromise();
+      this.isLoggedIn = false;
+      this.currentUser = null;
+      return response;
+    } catch(e) {
+      throw e;
+    }
   }
 }

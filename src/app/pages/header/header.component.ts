@@ -14,8 +14,12 @@ export class HeaderComponent {
   constructor(public authService: AuthService, public router: Router) {}
 
   logout() {
-    this.authService.logout();
-    this.router.navigate(['/home']);
+    try {
+      this.authService.logout();
+      this.router.navigate(['/home']);
+    } catch(e) {
+      console.log(e);
+    }
   }
 
 }
