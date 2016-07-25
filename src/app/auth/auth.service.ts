@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import {UserModel} from '../users/';
 
 @Injectable()
 export class AuthService {
   
-  public currentUser: Object;
+  public currentUser: UserModel;
   public isLoggedIn: boolean = false;
   
   private loginUrl: string = 'https://angularjstutorial-staging.herokuapp.com/api/sessions';
@@ -14,13 +15,13 @@ export class AuthService {
   
   constructor (private http: Http) {}
   
-  public async login(email: String, password: String): Promise<Object> {
+  public async login(email: String, password: String): Promise<UserModel> {
     let body = JSON.stringify({ email, password });
     
     try {
       let response = await this.http.post(this.loginUrl, body, this.options).toPromise();
       this.isLoggedIn = true;
-      this.currentUser = response.json();
+      this.currentUser = new UserModel(response.json());
       return this.currentUser;;
     } catch(e) {
       throw e;

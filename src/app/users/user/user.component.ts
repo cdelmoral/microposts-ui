@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserModel} from '../';
 
 @Component({
@@ -7,19 +7,12 @@ import {UserModel} from '../';
   templateUrl: 'user.component.html',
   styleUrls: ['user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   
+  @Input()
   public user: UserModel;
-
-  constructor() {}
-
-  ngOnInit() {
-    this.user = new UserModel('Carlos', '0', 0);
-    console.log(this.user);
-  }
   
   public pluralize(num: number, noun: string) {
     return num + ' ' + noun;
   }
-
 }
