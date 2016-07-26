@@ -46,6 +46,8 @@ const barrels: string[] = [
   'app/auth/login',
   'app/users',
   'app/users/user',
+  'app/microposts',
+  'app/microposts/micropost-form',
   /** @cli-barrel */
 ];
 

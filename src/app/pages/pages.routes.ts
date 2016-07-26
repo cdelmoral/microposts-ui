@@ -1,12 +1,8 @@
 import { RouterConfig } from '@angular/router';
-import {
-  HomeComponent,
-  HelpComponent,
-  AboutComponent,
-  ContactComponent
-} from './';
 
-export const pagesRoutes: RouterConfig = [
+import { HomeComponent, HelpComponent, AboutComponent, ContactComponent } from './';
+
+export const PAGES_ROUTES: RouterConfig = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'help', component: HelpComponent },

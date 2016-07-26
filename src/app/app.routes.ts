@@ -1,13 +1,12 @@
 import { provideRouter, RouterConfig } from '@angular/router';
-import { pagesRoutes } from './pages';
-import {authRoutes, authProviders} from './auth';
+import { PAGES_ROUTES } from './pages';
+import { AUTH_ROUTES } from './auth';
 
 export const routes: RouterConfig = [
-  ...pagesRoutes,
-  ...authRoutes
+  ...PAGES_ROUTES,
+  ...AUTH_ROUTES
 ];
 
 export const APP_ROUTER_PROVIDERS = [
-  provideRouter(routes),
-  authProviders
+  provideRouter(routes)
 ];

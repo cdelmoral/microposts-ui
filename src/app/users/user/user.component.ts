@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserModel} from '../';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { UserModel } from '../';
 
 @Component({
   moduleId: module.id,
