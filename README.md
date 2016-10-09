@@ -1,3 +1,5 @@
+[ ![Codeship Status for cdelmoral/microposts-ui](https://app.codeship.com/projects/17945db0-7077-0134-6635-4adf8fbeb56c/status?branch=master)](https://app.codeship.com/projects/178183)
+
 # MicropostsUi
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.8.
