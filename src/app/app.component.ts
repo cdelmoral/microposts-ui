@@ -1,18 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-import { HTTP_PROVIDERS } from '@angular/http';
-
-import { HeaderComponent, FooterComponent } from './pages';
-import { AuthService } from './auth';
-import { MicropostsService } from './microposts';
+import { Component } from '@angular/core';
 
 @Component({
-  moduleId: module.id,
-  selector: 'mp-root',
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css'],
-  directives: [ROUTER_DIRECTIVES, HeaderComponent, FooterComponent],
-  providers: [HTTP_PROVIDERS, AuthService, MicropostsService],
-  encapsulation: ViewEncapsulation.None
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'app works!';
+}
