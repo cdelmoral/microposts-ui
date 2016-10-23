@@ -27,6 +27,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     FormsModule,
     HttpModule,
     RouterModule.forRoot([
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
       { path: 'help', component: HelpComponent },
       { path: 'about', component: AboutComponent },
