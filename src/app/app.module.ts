@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { HelpComponent } from './pages/help/help.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { FooterComponent } from './pages/footer/footer.component';
     HomeComponent,
     HeaderComponent,
     HelpComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,9 @@ import { FooterComponent } from './pages/footer/footer.component';
     HttpModule,
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      { path: 'help', component: HelpComponent }
+      { path: 'help', component: HelpComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'contact', component: ContactComponent }
     ])
   ],
   providers: [],
