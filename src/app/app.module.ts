@@ -5,22 +5,22 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { HeaderComponent } from './pages/header/header.component';
-import { HelpComponent } from './pages/help/help.component';
-import { FooterComponent } from './pages/footer/footer.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
-    HelpComponent,
     FooterComponent,
+    HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +29,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     RouterModule.forRoot([
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'help', component: HelpComponent },
       { path: 'about', component: AboutComponent },
-      { path: 'contact', component: ContactComponent }
+      { path: 'contact', component: ContactComponent },
+      { path: 'help', component: HelpComponent }
     ])
   ],
   providers: [],

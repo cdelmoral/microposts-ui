@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mp-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  template: `
+    <h1>Contact works!</h1>
+    <p>Find me in src/app/contact/contact.component.html</p>
+  `,
+  styles: []
 })
 export class ContactComponent implements OnInit {
 
@@ -11,5 +14,4 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'mp-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  template: `
+    <h1>About works!</h1>
+    <p>Find me in src/app/about/about.component.html</p>
+  `,
+  styles: []
 })
 export class AboutComponent implements OnInit {
 
@@ -11,5 +14,4 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
