@@ -1,27 +1,27 @@
-<!-- <div class="row" *ngIf="authService.isLoggedIn"> -->
+<!-- <div class="row" *ngIf="authService.isLoggedIn">
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <!-- <mp-user [user]="authService.currentUser"></mp-user> -->
+      <mp-user [user]="authService.currentUser"></mp-user>
     </section>
 
     <section class="stats">
-      <!-- stats -->
+      <stats></stats>
     </section>
 
     <section class="micropost_form">
-      <!-- <mp-micropost-form [userId]="authService.currentUser.id"></mp-micropost-form> -->
+      <mp-micropost-form [userId]="authService.currentUser.id"></mp-micropost-form>
     </section>
   </aside>
 
   <div class="col-md-8">
     <h3>Micropost Feed</h3>
 
-    <!-- feed -->
+    <feed></feed>
   </div>
-</div>
+</div> -->
 
-<!-- <div class="center jumbotron" *ngIf="!authService.isLoggedIn">
+<div class="center jumbotron"><!-- *ngIf="!authService.isLoggedIn">-->
     <h1>Welcome to the Sample App</h1>
 
     <h2>
@@ -30,5 +30,5 @@
         sample application.
     </h2>
 
-    <a [routerLink]="['/login']" class="btn btn-lg btn-primary">Sign up now!</a>
-</div> -->
+    <a [routerLink]="['/']" class="btn btn-lg btn-primary">Sign up now!</a>
+</div>
