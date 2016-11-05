@@ -23,7 +23,7 @@ export class AuthService {
       let response = await this.http.post(this.loginUrl, body, this.options).toPromise();
       this.isLoggedIn = true;
       this.currentUser = new User(response.json());
-      return this.currentUser;;
+      return this.currentUser;
     } catch(e) {
       throw e;
     }

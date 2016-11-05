@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'mp-login',
@@ -10,8 +13,14 @@ export class LoginComponent {
   public loginEmail:String;
   public loginPassword:String;
 
-  constructor() { }
+  constructor(public authService: AuthService, public router: Router) { }
 
-  onSubmit() {
+  public async onSubmit() {
+    try {
+      let user = await this.authService.login(this.loginEmail, this.loginPassword);
+      this.router.navigate(['/home']);
+    } catch(e) {
+      console.log(e);
+    }
   }
 }
