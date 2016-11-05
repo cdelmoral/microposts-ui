@@ -1,14 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'mp-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor() { }
+  constructor(public authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
+  public async logout() {
+    try {
+      await this.authService.logout();
+      this.router.navigate(['/home']);
+    } catch(e) {
+      console.log(e);
+    }
   }
 }
