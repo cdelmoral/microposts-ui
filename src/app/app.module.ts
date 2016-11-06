@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { MicropostsModule } from './microposts/microposts.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -34,6 +35,7 @@ import { LoginComponent } from './login/login.component';
     HttpModule,
     AuthModule,
     UsersModule,
+    MicropostsModule,
     AppRoutingModule
   ],
   providers: [],
