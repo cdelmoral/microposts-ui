@@ -8,6 +8,5 @@ import { AuthService } from '../auth/auth.service';
   styles: []
 })
 export class HomeComponent {
-
   constructor(public authService: AuthService) { }
 }
