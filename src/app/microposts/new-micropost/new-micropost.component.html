@@ -1,0 +1,17 @@
+<form name="micropost" (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class="field">
+    <div class="form-group">
+      <label for="content" class="control-label">New micropost</label>
+      <textarea id="content" name="content" class="form-control"
+                placeholder="Compose new micropost..." required maxlength="140"
+                [(ngModel)]="micropostContent" #content="ngModel">
+      </textarea>
+    </div>
+
+    <div class="help-error" role="alert" [hidden]="content.valid || content.untouched">
+      Your micropost needs some content
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Post" [disabled]="!form.form.valid">
+  </div>
+</form>

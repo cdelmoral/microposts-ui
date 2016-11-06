@@ -1,25 +1,17 @@
 {
-  "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "mapRoot": "/",
-    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "mapRoot": "./",
+    "module": "es6",
     "moduleResolution": "node",
-    "noEmitOnError": true,
-    "noImplicitAny": false,
-    "outDir": "../dist/",
-    "rootDir": ".",
+    "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "target": "es6",
-    "inlineSources": true
-  },
-
-  "files": [
-    "main.ts",
-    "typings.d.ts",
-    "app/app.component.ts",
-    "app/app.routes.ts"
-  ]
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  }
 }

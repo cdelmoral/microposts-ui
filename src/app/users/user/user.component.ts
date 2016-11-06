@@ -1,19 +1,25 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-import { UserModel } from '../';
+import { User } from '../user';
 
 @Component({
-  moduleId: module.id,
   selector: 'mp-user',
-  templateUrl: 'user.component.html',
-  styleUrls: ['user.component.css']
+  template: `
+    <h1>{{user.name}}</h1>
+    <span><a href="/users/user.id">view my profile</a></span>
+    <span>{{pluralize(user.micropostsCount, "micropost")}}</span>
+  `,
+  styles: []
 })
 export class UserComponent {
-  
+
   @Input()
-  public user: UserModel;
-  
-  public pluralize(num: number, noun: string) {
+  public user: User;
+
+  constructor() { }
+
+  public pluralize(num: number, noun: string):string {
     return num + ' ' + noun;
   }
+
 }
