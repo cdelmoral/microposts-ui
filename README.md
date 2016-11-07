@@ -1,4 +1,4 @@
-[ ![Codeship Status for cdelmoral/microposts-ui](https://app.codeship.com/projects/4295ba20-805a-0134-af0d-7a2ab9e69228/status?branch=master)](https://app.codeship.com/projects/182069)
+[ ![Codeship Status for cdelmoral/microposts-ui](https://app.codeship.com/projects/4295ba20-805a-0134-af0d-7a2ab9e69228/status?branch=master)](https://app.codeship.com/projects/182069) [![Build Status](https://travis-ci.org/cdelmoral/microposts-ui.svg?branch=master)](https://travis-ci.org/cdelmoral/microposts-ui)
 
 # MicropostsUi
 
