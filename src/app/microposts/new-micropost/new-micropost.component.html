@@ -12,6 +12,7 @@
       Your micropost needs some content
     </div>
 
-    <input type="submit" class="btn btn-primary" value="Post" [disabled]="!form.form.valid">
+    <input type="submit" class="btn btn-primary" [disabled]="!form.form.valid || submitted"
+           value="{{ submitted ? 'Posting...' : 'Post' }}">
   </div>
 </form>

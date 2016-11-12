@@ -15,16 +15,20 @@ export class NewMicropostComponent {
   public userId: string;
 
   public micropostContent: string;
+  public submitted: boolean = false;
 
   constructor(private micropostsService: MicropostsService, private router: Router) { }
 
   public async onSubmit() {
+    this.submitted = true;
     try {
       let microposts =
         await this.micropostsService.createMicropost(this.userId, this.micropostContent);
       this.router.navigate(['/home']);
     } catch(e) {
       console.log(e);
+    } finally {
+      this.submitted = false;
     }
   }
 }
