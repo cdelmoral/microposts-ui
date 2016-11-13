@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment';
+
 import { User } from '../users/user';
 
 @Injectable()
@@ -10,9 +12,11 @@ export class AuthService {
   public currentUser: User;
   public isLoggedIn: boolean = false;
 
-  private loginUrl: string = 'https://angularjstutorial-staging.herokuapp.com/api/sessions';
-  private options: RequestOptions =
-    new RequestOptions({ headers: new Headers({ 'Content-Type' : 'application/json '}) });
+  private loginUrl: string = environment.serverUrl + '/sessions';
+  private options: RequestOptions = new RequestOptions({
+    headers: new Headers({ 'Content-Type' : 'application/json '}),
+    withCredentials: true
+  });
 
   constructor (private http: Http) {}
 
