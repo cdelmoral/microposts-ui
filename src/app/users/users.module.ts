@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { UsersService } from './users.service';
 import { UserComponent } from './user/user.component';
 
 @NgModule({
@@ -11,6 +13,9 @@ import { UserComponent } from './user/user.component';
   ],
   declarations: [
     UserComponent
+  ],
+  providers: [
+    UsersService
   ]
 })
 export class UsersModule { }
