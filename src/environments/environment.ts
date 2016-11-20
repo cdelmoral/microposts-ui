@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  serverUrl: "http://angularjstutorial-staging.herokuapp.com/api"
+  serverUrl: "http://localhost:8000/api"
 };
