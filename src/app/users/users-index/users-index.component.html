@@ -1,0 +1,16 @@
+<h1>All users</h1>
+
+<mp-pagination-controls (pageChange)="getUsersPage($event)"></mp-pagination-controls>
+
+<ul class="users">
+  <li *ngFor="let user of users | paginate: paginateConfig">
+    <img src="https://secure.gravatar.com/avatar/{{ user.gravatar_id }}"
+         alt="{{ user.name }}" class="gravatar gravatar-index"/>
+    <a href="/users/{{user.id}}">{{user.name}}</a> ({{user.email}})
+    <!-- <span ng-if="currentUserIsAdmin()">
+       | <a href="" ng-click="ctrl.deleteUser(user)" at-confirm="ctrl.CONFIRM">delete</a>
+    </span> -->
+  </li>
+</ul>
+
+<mp-pagination-controls></mp-pagination-controls>

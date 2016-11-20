@@ -6,6 +6,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
+import { UsersIndexComponent } from './users/users-index/users-index.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { LoginComponent } from './login/login.component';
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'help', component: HelpComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'users', component: UsersIndexComponent }
     ])
   ],
   exports: [

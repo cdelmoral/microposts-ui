@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { PaginationModule } from '../pagination/pagination.module';
 import { UsersService } from './users.service';
 import { UserComponent } from './user/user.component';
+import { UsersIndexComponent } from './users-index/users-index.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    PaginationModule
   ],
   exports: [
     UserComponent
   ],
   declarations: [
-    UserComponent
+    UserComponent,
+    UsersIndexComponent
   ],
   providers: [
     UsersService
