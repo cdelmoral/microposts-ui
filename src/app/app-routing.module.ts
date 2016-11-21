@@ -1,6 +1,7 @@
 import { NgModule }     from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -17,7 +18,7 @@ import { UsersIndexComponent } from './users/users-index/users-index.component';
       { path: 'contact', component: ContactComponent },
       { path: 'help', component: HelpComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'users', component: UsersIndexComponent }
+      { path: 'users', component: UsersIndexComponent, canActivate: [AuthGuardService] }
     ])
   ],
   exports: [
