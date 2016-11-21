@@ -10,7 +10,7 @@
           <a [routerLink]="['/help']">Help</a>
         </li>
 
-        <li *ngIf="authService.isLoggedIn">
+        <li *ngIf="authService.isLoggedIn()">
           <a [routerLink]="['/users']">Users</a>
         </li>
         <!-- <li class="dropdown" ng-if="ctrl.userLoggedIn">
@@ -32,8 +32,8 @@
         </li> -->
 
         <li>
-          <a [routerLink]="['/login']" *ngIf="!authService.isLoggedIn">Log in</a>
-          <a href *ngIf="authService.isLoggedIn" (click)="logout()">Log out</a>
+          <a [routerLink]="['/login']" *ngIf="!authService.isLoggedIn()">Log in</a>
+          <a [routerLink]="['/home']" *ngIf="authService.isLoggedIn()" (click)="logout()">Log out</a>
         </li>
       </ul>
     </nav>
