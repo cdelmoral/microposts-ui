@@ -1,13 +1,11 @@
-import { NgModule }     from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { AuthGuardService } from './auth/auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HelpComponent } from './help/help.component';
 import { LoginComponent } from './login/login.component';
-import { UsersIndexComponent } from './users/users-index/users-index.component';
 
 @NgModule({
   imports: [
@@ -17,8 +15,7 @@ import { UsersIndexComponent } from './users/users-index/users-index.component';
       { path: 'about', component: AboutComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'help', component: HelpComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'users', component: UsersIndexComponent, canActivate: [AuthGuardService] }
+      { path: 'login', component: LoginComponent }
     ])
   ],
   exports: [

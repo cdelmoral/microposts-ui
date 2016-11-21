@@ -20,7 +20,6 @@ export class UsersIndexComponent implements OnInit {
   }
 
   public async getUsersPage(newPageNumber) {
-    console.log(newPageNumber);
     this.paginateConfig.currentPage = newPageNumber;
 
     let currentPage = this.paginateConfig.currentPage;
