@@ -28,4 +28,15 @@ export class UsersService {
     }
   }
 
+  public async createUser(user: any) {
+    let body = JSON.stringify(user);
+
+    try {
+      let response = await this.http.post(this.usersUrl, body, this.options).toPromise();
+      return response.json();
+    } catch(e) {
+      throw e;
+    }
+  }
+
 }
