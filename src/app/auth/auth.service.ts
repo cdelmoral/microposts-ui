@@ -10,7 +10,6 @@ import { User } from '../users/user';
 export class AuthService {
 
   public currentUser: User;
-  public isLoggedIn: boolean = false;
 
   private loginUrl: string = environment.serverUrl + '/sessions';
   private options: RequestOptions = new RequestOptions({
@@ -20,12 +19,31 @@ export class AuthService {
 
   constructor (private http: Http) {}
 
+  public isLoggedIn(): boolean {
+    return this.currentUser !== null;
+  }
+
+  public async checkSession(): Promise<void> {
+    if (this.currentUser === undefined) {
+      try {
+        let response =
+          await this.http.get(this.loginUrl + '/authenticated', this.options).toPromise();
+        if (response.json().authenticated === false) {
+          this.currentUser = null;
+        } else {
+          this.currentUser = new User(response.json());
+        }
+      } catch(e) {
+        throw e;
+      }
+    }
+  }
+
   public async login(email: String, password: String): Promise<User> {
     let body = JSON.stringify({ email, password });
 
     try {
       let response = await this.http.post(this.loginUrl, body, this.options).toPromise();
-      this.isLoggedIn = true;
       this.currentUser = new User(response.json());
       return this.currentUser;
     } catch(e) {
@@ -35,8 +53,7 @@ export class AuthService {
 
   public async logout(): Promise<Object> {
     try {
-      let response = await this.http.delete(this.loginUrl + '/logout').toPromise();
-      this.isLoggedIn = false;
+      let response = await this.http.delete(this.loginUrl + '/logout', this.options).toPromise();
       this.currentUser = null;
       return response;
     } catch(e) {

@@ -15,7 +15,6 @@ export class HeaderComponent {
   public async logout() {
     try {
       await this.authService.logout();
-      this.router.navigate(['/home']);
     } catch(e) {
       console.log(e);
     }
