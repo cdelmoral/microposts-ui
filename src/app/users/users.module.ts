@@ -9,6 +9,8 @@ import { UsersService } from './users.service';
 import { UserComponent } from './user/user.component';
 import { UsersIndexComponent } from './users-index/users-index.component';
 import { UserNewComponent } from './user-new/user-new.component';
+import { UserActivationComponent } from './user-activation/user-activation.component';
+import { UserActivationResolve } from './user-activation-resolve.service';
 
 @NgModule({
   imports: [
@@ -24,10 +26,12 @@ import { UserNewComponent } from './user-new/user-new.component';
   declarations: [
     UserComponent,
     UsersIndexComponent,
-    UserNewComponent
+    UserNewComponent,
+    UserActivationComponent
   ],
   providers: [
-    UsersService
+    UsersService,
+    UserActivationResolve
   ]
 })
 export class UsersModule { }

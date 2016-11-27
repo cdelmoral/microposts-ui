@@ -39,4 +39,19 @@ export class UsersService {
     }
   }
 
+  public async activateUser(userId: string, token: string): Promise<boolean> {
+    let url = this.usersUrl +'/activate/' + userId + '/' + token;
+    let data;
+
+    try {
+      let response = await this.http.put(url, {}, this.options).toPromise();
+      console.log(response.json());
+      data = response.json();
+    } catch(e) {
+      throw e;
+    }
+
+    return data && data.user;
+  }
+
 }
