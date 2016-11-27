@@ -2,12 +2,21 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { UsersIndexComponent } from './users-index/users-index.component';
+import { UserNewComponent } from './user-new/user-new.component';
+import { UserActivationComponent } from './user-activation/user-activation.component';
 import { AuthGuardService } from '../auth/auth-guard.service';
+import { UserActivationResolve } from './user-activation-resolve.service';
 
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: 'users', component: UsersIndexComponent, canActivate: [AuthGuardService] }
+      { path: 'users', component: UsersIndexComponent, canActivate: [AuthGuardService] },
+      { path: 'signup', component: UserNewComponent },
+      {
+        path: 'activate/:user_id/:token',
+        component: UserActivationComponent,
+        resolve: { activated: UserActivationResolve }
+      }
     ])
   ],
   exports: [

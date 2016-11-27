@@ -28,4 +28,30 @@ export class UsersService {
     }
   }
 
+  public async createUser(user: any) {
+    let body = JSON.stringify(user);
+
+    try {
+      let response = await this.http.post(this.usersUrl, body, this.options).toPromise();
+      return response.json();
+    } catch(e) {
+      throw e;
+    }
+  }
+
+  public async activateUser(userId: string, token: string): Promise<boolean> {
+    let url = this.usersUrl +'/activate/' + userId + '/' + token;
+    let data;
+
+    try {
+      let response = await this.http.put(url, {}, this.options).toPromise();
+      console.log(response.json());
+      data = response.json();
+    } catch(e) {
+      throw e;
+    }
+
+    return data && data.user;
+  }
+
 }
