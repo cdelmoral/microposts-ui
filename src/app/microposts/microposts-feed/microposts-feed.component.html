@@ -1,0 +1,9 @@
+<ol class="microposts">
+  <li id="micropost-{{ micropost.id }}"
+      *ngFor="let micropost of microposts | paginate: paginateConfig">
+
+      <mp-micropost [micropost]="micropost"></mp-micropost>
+  </li>
+</ol>
+
+<mp-pagination-controls (pageChange)="getMicropostsFeedPage($event)"></mp-pagination-controls>

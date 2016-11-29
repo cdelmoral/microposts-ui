@@ -1,0 +1,12 @@
+<span class="user">
+  <a href="/users/{{ micropost.userId }}">{{ micropost.userName }}</a>
+</span>
+
+<span class="content">{{ micropost.content }}</span>
+
+<span class="timestamp">
+  Created at {{ micropost.createdAt }}.
+  <!-- <a href="" *ngIf="isCurrentUser()" (click)="deleteMicropost()" at-confirm="ctrl.CONFIRM">
+    delete
+  </a> -->
+</span>
