@@ -46,6 +46,20 @@ export class MicropostsService {
     }
   }
 
+  public async getMicropostsPage(user: User, page: number) {
+    let url = environment.serverUrl + '/microposts/user_page/' + user.id + '?pageNumber=' + page +
+      '&itemsPerPage=' + 10;
+
+    try {
+      let response = await this.http.get(url, this.options).toPromise();
+      let responseJson = response.json();
+      let microposts = this.createMicropostsArray(responseJson.microposts, user);
+      return { count: responseJson.count, microposts: microposts };
+    } catch(e) {
+      throw e;
+    }
+  }
+
   private createMicropostsArray(responseMicroposts: any, user: User): Array<Micropost> {
     let microposts = new Array<Micropost>();
     for (let micropost of responseMicroposts) {

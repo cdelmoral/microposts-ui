@@ -1,0 +1,26 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <img src="https://secure.gravatar.com/avatar/{{ user.gravatarId }}"
+             alt="{{ user.name }}" class="gravatar"/>
+        {{ user.name }}
+      </h1>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+    <h3>Microposts ({{ user.micropostsCount }})</h3>
+
+    <mp-pagination-controls (pageChange)="getMicropostsPage($event)"></mp-pagination-controls>
+
+    <ol class="microposts">
+      <li id="micropost-{{ micropost.id }}"
+          *ngFor="let micropost of microposts | paginate: pageControls">
+        <mp-micropost [micropost]="micropost"></mp-micropost>
+      </li>
+    </ol>
+
+    <mp-pagination-controls (pageChange)="getMicropostsPage($event)"></mp-pagination-controls>
+  </div>
+</div>
