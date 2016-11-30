@@ -16,7 +16,8 @@ import { MicropostComponent } from './micropost/micropost.component';
   ],
   exports: [
     NewMicropostComponent,
-    MicropostsFeedComponent
+    MicropostsFeedComponent,
+    MicropostComponent
   ],
   declarations: [
     NewMicropostComponent,

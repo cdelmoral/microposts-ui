@@ -5,12 +5,16 @@ import { FormsModule } from '@angular/forms';
 import { PaginationModule } from '../pagination/pagination.module';
 import { AuthModule } from '../auth/auth.module';
 import { UsersRoutingModule } from './users-routing.module';
+import { MicropostsModule } from '../microposts/microposts.module';
+
 import { UsersService } from './users.service';
+import { UserResolve } from './user-show/user-resolve.service';
 import { UserComponent } from './user/user.component';
 import { UsersIndexComponent } from './users-index/users-index.component';
 import { UserNewComponent } from './user-new/user-new.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
-import { UserActivationResolve } from './user-activation-resolve.service';
+import { UserActivationResolve } from './user-activation/user-activation-resolve.service';
+import { UserShowComponent } from './user-show/user-show.component';
 
 @NgModule({
   imports: [
@@ -18,7 +22,8 @@ import { UserActivationResolve } from './user-activation-resolve.service';
     FormsModule,
     AuthModule,
     UsersRoutingModule,
-    PaginationModule
+    PaginationModule,
+    MicropostsModule
   ],
   exports: [
     UserComponent
@@ -27,11 +32,13 @@ import { UserActivationResolve } from './user-activation-resolve.service';
     UserComponent,
     UsersIndexComponent,
     UserNewComponent,
-    UserActivationComponent
+    UserActivationComponent,
+    UserShowComponent
   ],
   providers: [
     UsersService,
-    UserActivationResolve
+    UserActivationResolve,
+    UserResolve
   ]
 })
 export class UsersModule { }

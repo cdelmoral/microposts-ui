@@ -17,6 +17,17 @@ export class UsersService {
 
   constructor(private http: Http, private authService: AuthService) {}
 
+  public async getUser(userId: string) {
+    let url = this.usersUrl + '/' + userId;
+
+    try {
+      let response = await this.http.get(url, this.options).toPromise();
+      return new User(response.json());
+    } catch(e) {
+      throw e;
+    }
+  }
+
   public async getPage(page: number, items: number) {
     let url = this.usersUrl + '/index_page?pageNumber=' + page + '&usersPerPage=' + items;
 
