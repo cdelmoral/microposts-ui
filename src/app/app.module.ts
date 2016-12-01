@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -34,6 +36,7 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    FlashMessagesModule,
     AuthModule,
     UsersModule,
     MicropostsModule,

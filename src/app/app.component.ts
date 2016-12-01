@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   template: `
     <mp-header></mp-header>
     <div class="container">
-      <!-- <mp-flash></mp-flash> -->
+      <flash-messages></flash-messages>
       <router-outlet></router-outlet>
       <mp-footer></mp-footer>
     </div>
