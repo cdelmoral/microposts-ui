@@ -47,7 +47,7 @@ export class AuthService {
       this.currentUser = new User(response.json());
       return this.currentUser;
     } catch(e) {
-      throw e;
+      throw new Error(e._body);
     }
   }
 

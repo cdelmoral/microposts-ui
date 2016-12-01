@@ -24,8 +24,8 @@
         Password is required
       </div>
 
-      <input type="submit" class="btn btn-primary" [disabled]="!form.form.valid || form.submitted"
-             value="{{ form.submitted ? 'Logging in...' : 'Log in' }}">
+      <input type="submit" class="btn btn-primary" [disabled]="!form.form.valid || submitted"
+             value="{{ submitted ? 'Logging in...' : 'Log in' }}">
     </form>
 
     <p>New user? <a [routerLink]="['/signup']">Sign up now!</a></p>
