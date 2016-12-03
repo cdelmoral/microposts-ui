@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { PaginationModule } from '../pagination/pagination.module';
 import { MicropostsService } from './microposts.service';
@@ -12,7 +13,8 @@ import { MicropostComponent } from './micropost/micropost.component';
   imports: [
     FormsModule,
     CommonModule,
-    PaginationModule
+    PaginationModule,
+    RouterModule
   ],
   exports: [
     NewMicropostComponent,

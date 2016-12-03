@@ -1,5 +1,5 @@
 <span class="user">
-  <a href="/users/{{ micropost.userId }}">{{ micropost.userName }}</a>
+  <a [routerLink]="['/users', micropost.userId]">{{ micropost.userName }}</a>
 </span>
 
 <span class="content">{{ micropost.content }}</span>
