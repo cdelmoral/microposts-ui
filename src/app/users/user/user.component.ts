@@ -6,7 +6,7 @@ import { User } from '../user';
   selector: 'mp-user',
   template: `
     <h1>{{user.name}}</h1>
-    <span><a href="/users/user.id">view my profile</a></span>
+    <span><a href="/users/{{ user.id }}">view my profile</a></span>
     <span>{{pluralize(user.micropostsCount, "micropost")}}</span>
   `,
   styles: []
