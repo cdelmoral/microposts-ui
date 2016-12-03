@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { MicropostsModule } from './microposts/microposts.module';
+import { PasswordResetsModule } from './password-resets/password-resets.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -40,7 +41,8 @@ import { AuthService } from './auth/auth.service';
     AuthModule,
     UsersModule,
     MicropostsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PasswordResetsModule
   ],
   providers: [
     {
