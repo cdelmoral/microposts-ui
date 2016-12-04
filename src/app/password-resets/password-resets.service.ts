@@ -48,7 +48,7 @@ export class PasswordResetsService {
       let responseJson = response.json();
       return true;
     } catch(e) {
-      return new Error(e._body);
+      throw new Error(e._body);
     }
   }
 }
