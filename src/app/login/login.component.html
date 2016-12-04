@@ -15,7 +15,7 @@
 
       <div class="form-group">
         <label for="password" class="control-label">Password</label>
-        <!-- <a href="#/password_resets">(forgot password)</a> -->
+        <a [routerLink]="['/password_reset']">(forgot password)</a>
         <input id="password" name="password" class="form-control"  type="password"
                placeholder="Password" required #password="ngModel" [(ngModel)]="loginPassword">
       </div>
