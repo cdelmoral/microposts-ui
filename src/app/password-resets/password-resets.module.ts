@@ -6,6 +6,7 @@ import { PasswordResetsRoutingModule } from './password-resets-routing.module';
 import { PasswordResetFormComponent } from './password-reset-form/password-reset-form.component';
 import { PasswordResetCreateComponent } from './password-reset-create/password-reset-create.component';
 import { PasswordResetsService } from './password-resets.service';
+import { PasswordResetUpdateResolve } from './password-reset-update-resolve.service';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import { PasswordResetsService } from './password-resets.service';
     FormsModule
   ],
   declarations: [PasswordResetFormComponent, PasswordResetCreateComponent],
-  providers: [PasswordResetsService]
+  providers: [PasswordResetsService, PasswordResetUpdateResolve]
 })
 export class PasswordResetsModule { }

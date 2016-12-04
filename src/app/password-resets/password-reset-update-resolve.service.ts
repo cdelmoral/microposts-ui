@@ -12,8 +12,8 @@ export class PasswordResetUpdateResolve implements Resolve<any> {
     let userId = route.params['user_id'];
     let token = route.params['token'];
 
-    await this.passwordResetsService.validateToken(userId, token);
+    let valid = await this.passwordResetsService.validateToken(userId, token);
 
-    return null;
+    return { valid: valid, user: { id: userId, token: token } };
   }
 }

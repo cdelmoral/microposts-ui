@@ -40,15 +40,16 @@ export class PasswordResetsService {
     }
   }
 
-  public async validateToken(userId: string, token: string) {
+  public async validateToken(userId: string, token: string): Promise<boolean> {
     let url = this.passwordResetsUrl + '/valid_token?id=' + userId + '&token=' + token;
 
+    let response;
     try {
-      let response = await this.http.get(url, this.options).toPromise();
-      let responseJson = response.json();
-      return true;
+      response = await this.http.get(url, this.options).toPromise();
     } catch(e) {
-      throw new Error(e._body);
+      return false;
     }
+
+    return response.status === 200;
   }
 }

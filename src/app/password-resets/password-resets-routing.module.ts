@@ -11,9 +11,9 @@ import { PasswordResetUpdateResolve } from './password-reset-update-resolve.serv
     RouterModule.forChild([
       { path: 'password_reset', component: PasswordResetCreateComponent },
       {
-        path: 'password_reset/:user_id/:token',
+        path: 'password_resets/:user_id/:token',
         component: PasswordResetFormComponent,
-        resolve: { user: PasswordResetUpdateResolve }
+        resolve: { result: PasswordResetUpdateResolve }
       }
     ])
   ],
