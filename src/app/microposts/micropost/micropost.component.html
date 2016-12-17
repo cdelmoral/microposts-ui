@@ -6,7 +6,7 @@
 
 <span class="timestamp">
   Created at {{ micropost.createdAt }}.
-  <!-- <a href="" *ngIf="isCurrentUser()" (click)="deleteMicropost()" at-confirm="ctrl.CONFIRM">
+  <a href="" *ngIf="authService.isCurrentUser(micropost.userId)" (click)="deleteMicropost()">
     delete
-  </a> -->
+  </a>
 </span>

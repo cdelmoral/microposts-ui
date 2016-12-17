@@ -3,37 +3,35 @@ import { Router } from '@angular/router';
 
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-import { User } from '../../users/user';
 import { MicropostsService } from '../microposts.service';
 
 @Component({
-  selector: 'mp-new-micropost',
-  templateUrl: './new-micropost.component.html',
-  styles: []
+    selector: 'mp-new-micropost',
+    templateUrl: './new-micropost.component.html',
+    styles: []
 })
 export class NewMicropostComponent {
 
-  @Input()
-  public userId: string;
+    @Input()
+    public userId: string;
 
-  public micropostContent: string;
-  public submitted: boolean = false;
+    public micropostContent: string;
+    public submitted: boolean = false;
 
-  constructor(
-    private micropostsService: MicropostsService,
-    private router: Router,
-    private flashService: FlashMessagesService
-  ) { }
+    constructor(
+        private micropostsService: MicropostsService,
+        private router: Router,
+        private flashService: FlashMessagesService
+    ) { }
 
-  public async onSubmit() {
-    this.submitted = true;
-    try {
-      let microposts =
-        await this.micropostsService.createMicropost(this.userId, this.micropostContent);
-    } catch(e) {
-      this.flashService.show(e.message, {timeout: 5000, cssClass: 'alert-danger'});
-    } finally {
-      this.submitted = false;
+    public async onSubmit() {
+        this.submitted = true;
+        try {
+            await this.micropostsService.createMicropost(this.userId, this.micropostContent);
+        } catch (e) {
+            this.flashService.show(e.message, {timeout: 5000, cssClass: 'alert-danger'});
+        } finally {
+            this.submitted = false;
+        }
     }
-  }
 }
