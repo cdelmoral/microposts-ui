@@ -8,26 +8,28 @@ import { MicropostsService } from './microposts.service';
 import { NewMicropostComponent } from './new-micropost/new-micropost.component';
 import { MicropostsFeedComponent } from './microposts-feed/microposts-feed.component';
 import { MicropostComponent } from './micropost/micropost.component';
+import {AuthModule} from '../auth/auth.module';
 
 @NgModule({
-  imports: [
-    FormsModule,
-    CommonModule,
-    PaginationModule,
-    RouterModule
-  ],
-  exports: [
-    NewMicropostComponent,
-    MicropostsFeedComponent,
-    MicropostComponent
-  ],
-  declarations: [
-    NewMicropostComponent,
-    MicropostsFeedComponent,
-    MicropostComponent
-  ],
-  providers: [
-    MicropostsService
-  ]
+    imports: [
+        FormsModule,
+        CommonModule,
+        PaginationModule,
+        RouterModule,
+        AuthModule
+    ],
+    exports: [
+        NewMicropostComponent,
+        MicropostsFeedComponent,
+        MicropostComponent
+    ],
+    declarations: [
+        NewMicropostComponent,
+        MicropostsFeedComponent,
+        MicropostComponent
+    ],
+    providers: [
+        MicropostsService
+    ]
 })
 export class MicropostsModule { }
