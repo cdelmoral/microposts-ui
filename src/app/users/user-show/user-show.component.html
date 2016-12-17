@@ -17,7 +17,7 @@
     <ol class="microposts">
       <li id="micropost-{{ micropost.id }}"
           *ngFor="let micropost of microposts | paginate: pageControls">
-        <mp-micropost [micropost]="micropost"></mp-micropost>
+        <mp-micropost [micropost]="micropost" (onDelete)="onDeleteMicropost($event)"></mp-micropost>
       </li>
     </ol>
 
