@@ -14,4 +14,8 @@ export class User {
         this.followersCount = user.followers_count;
         this.followingCount = user.following_count;
     };
+
+    public async isFollowing(user: User): Promise<boolean> {
+        return null;
+    }
 }

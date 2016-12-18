@@ -5,6 +5,7 @@ import { User } from '../user';
 import { Micropost } from '../../microposts/micropost';
 import { MicropostsService } from '../../microposts/microposts.service';
 import { UsersService } from '../users.service';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
     selector: 'mp-user-show',
@@ -17,7 +18,12 @@ export class UserShowComponent implements OnInit {
     public microposts: Array<Micropost>;
     public pageControls = { currentPage: 1, itemsPerPage: 10, totalItems: 0 };
 
-    constructor(private route: ActivatedRoute, private micropostsService: MicropostsService, private usersService: UsersService) { }
+    constructor(
+        public authService: AuthService,
+        private route: ActivatedRoute,
+        private micropostsService: MicropostsService,
+        private usersService: UsersService
+    ) { }
 
     async ngOnInit() {
         this.route.data.subscribe((data: any) => {

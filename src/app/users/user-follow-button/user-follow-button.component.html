@@ -1,0 +1,5 @@
+<div id="follow_form">
+  <form name="unfollow" (ngSubmit)="onSubmit()" #form="ngForm" novalidate>
+    <input type="submit" class="btn btn-primary" value="{{ isFollowing ? 'Unfollow' : 'Follow' }}">
+  </form>
+</div>

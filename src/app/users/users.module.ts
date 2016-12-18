@@ -16,6 +16,7 @@ import { UserActivationComponent } from './user-activation/user-activation.compo
 import { UserActivationResolve } from './user-activation/user-activation-resolve.service';
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
+import { UserFollowButtonComponent } from './user-follow-button/user-follow-button.component';
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import { UserStatsComponent } from './user-stats/user-stats.component';
         UserNewComponent,
         UserActivationComponent,
         UserShowComponent,
-        UserStatsComponent
+        UserStatsComponent,
+        UserFollowButtonComponent
     ],
     providers: [
         UsersService,
