@@ -15,30 +15,33 @@ import { UserNewComponent } from './user-new/user-new.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
 import { UserActivationResolve } from './user-activation/user-activation-resolve.service';
 import { UserShowComponent } from './user-show/user-show.component';
+import { UserStatsComponent } from './user-stats/user-stats.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    AuthModule,
-    UsersRoutingModule,
-    PaginationModule,
-    MicropostsModule
-  ],
-  exports: [
-    UserComponent
-  ],
-  declarations: [
-    UserComponent,
-    UsersIndexComponent,
-    UserNewComponent,
-    UserActivationComponent,
-    UserShowComponent
-  ],
-  providers: [
-    UsersService,
-    UserActivationResolve,
-    UserResolve
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        AuthModule,
+        UsersRoutingModule,
+        PaginationModule,
+        MicropostsModule
+    ],
+    exports: [
+        UserComponent,
+        UserStatsComponent
+    ],
+    declarations: [
+        UserComponent,
+        UsersIndexComponent,
+        UserNewComponent,
+        UserActivationComponent,
+        UserShowComponent,
+        UserStatsComponent
+    ],
+    providers: [
+        UsersService,
+        UserActivationResolve,
+        UserResolve
+    ]
 })
 export class UsersModule { }

@@ -1,0 +1,14 @@
+<div class="stats">
+  <a [routerLink]="['/users']">
+    <strong id="following" class="stat">
+      {{ user.followingCount }}
+    </strong>
+    following
+  </a>
+  <a [routerLink]="['/users']">
+    <strong id="followers" class="stat">
+      {{ user.followersCount }}
+    </strong>
+    followers
+  </a>
+</div>
