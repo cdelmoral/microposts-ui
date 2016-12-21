@@ -19,8 +19,9 @@ export class MicropostsService {
     private static createMicropostsArray(responseMicroposts: any, user: User): Array<Micropost> {
         let microposts = [];
         for (let micropost of responseMicroposts) {
-            micropost.user_name = user.name;
-            micropost.user_id = user.id;
+            micropost.user_name = micropost.user_id.name;
+            micropost.user_id = micropost.user_id.id;
+            micropost.gravatar_id = micropost.user_id.gravatar_id;
             microposts.push(new Micropost(micropost));
         }
         return microposts;
