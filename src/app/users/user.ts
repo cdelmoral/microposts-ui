@@ -5,6 +5,7 @@ export class User {
     public micropostsCount: number;
     public followersCount: number;
     public followingCount: number;
+    public email: string;
 
     constructor(user: any) {
         this.name = user.name;
@@ -13,9 +14,6 @@ export class User {
         this.gravatarId = user.gravatar_id;
         this.followersCount = user.followers_count;
         this.followingCount = user.following_count;
+        this.email = user.email;
     };
-
-    public async isFollowing(user: User): Promise<boolean> {
-        return null;
-    }
 }
