@@ -7,9 +7,16 @@
         {{ user.name }}
       </h1>
     </section>
+
+    <section class="stats">
+      <mp-user-stats [user]="user"></mp-user-stats>
+    </section>
   </aside>
 
   <div class="col-md-8">
+    <mp-user-follow-button *ngIf="!authService.isCurrentUser(user.id)" [user]="user">
+    </mp-user-follow-button>
+
     <h3>Microposts ({{ user.micropostsCount }})</h3>
 
     <mp-pagination-controls (pageChange)="getMicropostsPage($event)"></mp-pagination-controls>

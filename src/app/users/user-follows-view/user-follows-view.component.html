@@ -1,0 +1,42 @@
+<div class="row">
+  <aside class="col-md-4">
+
+    <section class="user_info">
+      <img src="https://secure.gravatar.com/avatar/{{ user.gravatarId }}"
+           alt="{{ user.name }}" class="gravatar"/>
+      <h1>{{ user.name }}</h1>
+      <span><a [routerLink]="['/users', user.id]">view my profile</a></span>
+      <span><b>Microposts:</b> {{ user.micropostsCount }}</span>
+    </section>
+
+    <section class="stats">
+      <mp-user-stats [user]="user"></mp-user-stats>
+      <div class="user_avatars" *ngIf="users.length > 0">
+        <div *ngFor="let user of allUsers">
+          <img src="https://secure.gravatar.com/avatar/{{ user.gravatarId }}"
+               [routerLink]="['/users', user.id]" alt="{{ user.name }}" class="gravatar"
+               width="30" height="30"/>
+        </div>
+      </div>
+    </section>
+
+  </aside>
+
+  <div class="col-md-8">
+    <h3>{{ title }}</h3>
+
+    <mp-pagination-controls (pageChange)="getUsersPage($event)"></mp-pagination-controls>
+
+    <ul class="users follow">
+      <li *ngFor="let user of users | paginate: pageControls">
+        <img src="https://secure.gravatar.com/avatar/{{ user.gravatarId }}"
+             alt="{{ user.name }}" class="gravatar gravatar-index"/>
+        <a [routerLink]="['/users', user.id]">{{user.name}}</a> ({{user.email}})
+      </li>
+    </ul>
+
+    <mp-pagination-controls (pageChange)="getUsersPage($event)"></mp-pagination-controls>
+
+  </div>
+</div>
+

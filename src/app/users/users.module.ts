@@ -15,30 +15,43 @@ import { UserNewComponent } from './user-new/user-new.component';
 import { UserActivationComponent } from './user-activation/user-activation.component';
 import { UserActivationResolve } from './user-activation/user-activation-resolve.service';
 import { UserShowComponent } from './user-show/user-show.component';
+import { UserStatsComponent } from './user-stats/user-stats.component';
+import { UserFollowButtonComponent } from './user-follow-button/user-follow-button.component';
+import { UserFollowingViewComponent } from './user-follows-view/user-following-view.component';
+import { UserFollowersViewComponent } from './user-follows-view/user-followers-view.component';
+import {UserFollowersResolveService} from './user-follows-view/user-followers-resolve.service';
+import {UserFollowingResolveService} from './user-follows-view/user-following-resolve.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    AuthModule,
-    UsersRoutingModule,
-    PaginationModule,
-    MicropostsModule
-  ],
-  exports: [
-    UserComponent
-  ],
-  declarations: [
-    UserComponent,
-    UsersIndexComponent,
-    UserNewComponent,
-    UserActivationComponent,
-    UserShowComponent
-  ],
-  providers: [
-    UsersService,
-    UserActivationResolve,
-    UserResolve
-  ]
+    imports: [
+        CommonModule,
+        FormsModule,
+        AuthModule,
+        UsersRoutingModule,
+        PaginationModule,
+        MicropostsModule
+    ],
+    exports: [
+        UserComponent,
+        UserStatsComponent
+    ],
+    declarations: [
+        UserComponent,
+        UsersIndexComponent,
+        UserNewComponent,
+        UserActivationComponent,
+        UserShowComponent,
+        UserStatsComponent,
+        UserFollowButtonComponent,
+        UserFollowingViewComponent,
+        UserFollowersViewComponent
+    ],
+    providers: [
+        UsersService,
+        UserActivationResolve,
+        UserResolve,
+        UserFollowersResolveService,
+        UserFollowingResolveService
+    ]
 })
 export class UsersModule { }
