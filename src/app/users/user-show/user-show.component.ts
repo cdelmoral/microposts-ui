@@ -21,8 +21,7 @@ export class UserShowComponent implements OnInit {
     constructor(
         public authService: AuthService,
         private route: ActivatedRoute,
-        private micropostsService: MicropostsService,
-        private usersService: UsersService
+        private micropostsService: MicropostsService
     ) { }
 
     async ngOnInit() {
