@@ -4,8 +4,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { environment } from '../../environments/environment';
 
-import { AuthService } from '../auth/auth.service';
-import { User } from '../users/user';
+import { User } from './user';
 
 @Injectable()
 export class UsersService {
@@ -15,7 +14,7 @@ export class UsersService {
         withCredentials: true
     });
 
-    constructor(private http: Http, private authService: AuthService) {}
+    constructor(private http: Http) {}
 
     public async getUser(userId: string) {
         let url = this.usersUrl + '/' + userId;
@@ -34,6 +33,36 @@ export class UsersService {
         try {
             let response = await this.http.get(url, this.options).toPromise();
             return response.json();
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    public async getFollowers(userId: string, page: number, items: number) {
+        let url = this.usersUrl + '/' + userId + '/followers?page=' + page + '&limit=' + items;
+
+        try {
+            let response = await this.http.get(url, this.options).toPromise();
+            let data = response.json();
+            let users = data.followers.map(function(user) {
+                return new User(user);
+            });
+            return {followers: users, count: data.count};
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    public async getFollowing(userId: string, page: number, items: number) {
+        let url = this.usersUrl + '/' + userId + '/following?page=' + page + '&limit=' + items;
+
+        try {
+            let response = await this.http.get(url, this.options).toPromise();
+            let data = response.json();
+            let users = data.following.map(function(user) {
+                return new User(user);
+            });
+            return {following: users, count: data.count};
         } catch (e) {
             throw e;
         }
@@ -80,7 +109,7 @@ export class UsersService {
         let url = this.usersUrl + '/' + followingId + '/follow';
 
         try {
-            let response = await this.http.post(url, {}, this.options).toPromise();
+            await this.http.post(url, {}, this.options).toPromise();
         } catch (e) {
             throw e;
         }
@@ -90,7 +119,7 @@ export class UsersService {
         let url = this.usersUrl + '/' + followingId + '/unfollow';
 
         try {
-            let response = await this.http.delete(url, this.options).toPromise();
+            await this.http.delete(url, this.options).toPromise();
         } catch (e) {
             throw e;
         }

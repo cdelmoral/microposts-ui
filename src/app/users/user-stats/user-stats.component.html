@@ -1,11 +1,11 @@
 <div class="stats">
-  <a [routerLink]="['/users']">
+  <a [routerLink]="['/users', user.id, 'following']">
     <strong id="following" class="stat">
       {{ user.followingCount }}
     </strong>
     following
   </a>
-  <a [routerLink]="['/users']">
+  <a [routerLink]="['/users', user.id, 'followers']">
     <strong id="followers" class="stat">
       {{ user.followersCount }}
     </strong>

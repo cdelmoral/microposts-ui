@@ -17,6 +17,10 @@ import { UserActivationResolve } from './user-activation/user-activation-resolve
 import { UserShowComponent } from './user-show/user-show.component';
 import { UserStatsComponent } from './user-stats/user-stats.component';
 import { UserFollowButtonComponent } from './user-follow-button/user-follow-button.component';
+import { UserFollowingViewComponent } from './user-follows-view/user-following-view.component';
+import { UserFollowersViewComponent } from './user-follows-view/user-followers-view.component';
+import {UserFollowersResolveService} from './user-follows-view/user-followers-resolve.service';
+import {UserFollowingResolveService} from './user-follows-view/user-following-resolve.service';
 
 @NgModule({
     imports: [
@@ -38,12 +42,16 @@ import { UserFollowButtonComponent } from './user-follow-button/user-follow-butt
         UserActivationComponent,
         UserShowComponent,
         UserStatsComponent,
-        UserFollowButtonComponent
+        UserFollowButtonComponent,
+        UserFollowingViewComponent,
+        UserFollowersViewComponent
     ],
     providers: [
         UsersService,
         UserActivationResolve,
-        UserResolve
+        UserResolve,
+        UserFollowersResolveService,
+        UserFollowingResolveService
     ]
 })
 export class UsersModule { }
