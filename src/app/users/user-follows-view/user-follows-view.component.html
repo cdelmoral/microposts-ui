@@ -12,9 +12,10 @@
     <section class="stats">
       <mp-user-stats [user]="user"></mp-user-stats>
       <div class="user_avatars" *ngIf="users.length > 0">
-        <div *ngFor="let user of users">
+        <div *ngFor="let user of allUsers">
           <img src="https://secure.gravatar.com/avatar/{{ user.gravatarId }}"
-               alt="{{ user.name }}" class="gravatar" width="30" height="30"/>
+               [routerLink]="['/users', user.id]" alt="{{ user.name }}" class="gravatar"
+               width="30" height="30"/>
         </div>
       </div>
     </section>

@@ -11,6 +11,7 @@ import {UsersService} from '../users.service';
 export class UserFollowingViewComponent implements OnInit {
 
     public user: User;
+    public allUsers: Array<User>;
     public users: Array<User>;
     public pageControls = { itemsPerPage: 10, currentPage: 1, totalItems: 0 };
 
@@ -19,6 +20,7 @@ export class UserFollowingViewComponent implements OnInit {
     async ngOnInit() {
         this.route.data.subscribe((resolve: any) => {
             this.user = resolve.data.user;
+            this.allUsers = resolve.data.allUsers;
             this.users = resolve.data.users;
             this.pageControls.totalItems = resolve.data.count;
         });

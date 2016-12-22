@@ -53,6 +53,21 @@ export class UsersService {
         }
     }
 
+    public async getAllFollowers(userId: string): Promise<Array<User>> {
+        let url = this.usersUrl + '/' + userId + '/all_followers';
+
+        try {
+            let response = await this.http.get(url, this.options).toPromise();
+            let data = response.json();
+            let users = data.followers.map(function(user) {
+                return new User(user);
+            });
+            return users;
+        } catch (e) {
+            throw e;
+        }
+    }
+
     public async getFollowing(userId: string, page: number, items: number) {
         let url = this.usersUrl + '/' + userId + '/following?page=' + page + '&limit=' + items;
 
@@ -63,6 +78,21 @@ export class UsersService {
                 return new User(user);
             });
             return {following: users, count: data.count};
+        } catch (e) {
+            throw e;
+        }
+    }
+
+    public async getAllFollowing(userId: string): Promise<Array<User>> {
+        let url = this.usersUrl + '/' + userId + '/all_following';
+
+        try {
+            let response = await this.http.get(url, this.options).toPromise();
+            let data = response.json();
+            let users = data.following.map(function(user) {
+                return new User(user);
+            });
+            return users;
         } catch (e) {
             throw e;
         }

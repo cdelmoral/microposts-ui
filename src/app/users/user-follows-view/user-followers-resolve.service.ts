@@ -12,7 +12,8 @@ export class UserFollowersResolveService implements Resolve<any> {
 
         let user = await this.usersService.getUser(userId);
         let data = await this.usersService.getFollowers(userId, 1, 10);
+        let allUsers = await this.usersService.getAllFollowers(userId);
 
-        return { users: data.followers, count: data.count, user: user };
+        return { users: data.followers, count: data.count, user: user, allUsers: allUsers };
     }
 }
