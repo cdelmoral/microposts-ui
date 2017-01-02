@@ -16,3 +16,18 @@ notifications:
   email:
     on_success: change
     on_failure: always
+before_deploy:
+  - node_modules/angular-cli/bin/ng build
+deploy:
+  provider: heroku
+  api_key:
+    secure: OfIzt9dJthKb0AxSzyQ0qdtDXxd8PQw7pyZfy78rNPwfayZzfh8pbeoWuTLfE58sAaGqAMGKsecSG0F9AYF6V/MNvKqvTPcEOAVa9C8sXAlwLwKRl4SbqM2jZGQOAJSkPHC7L7ayfEvMEvThodwcOBwna1Wdr6ah/pyL/kZIQxWJkRx811/AMC07sFQKLZW6zJYnJfQT6bDv5Xu+oR24WfkLSLeopctXE8Q5PmkUXyf5xaOd8UiCJ0Ar0c+mWPM9KXDiNyziIQcdj1n1jdKpWdxbzHp+7dvuZavjNGriMbTGmyqqPF3TupVBS8px4OzmKrI1tlvMrY8yHeFWx6Dtem3THukcWbTjNrrnYlF18f/pCqbTUiEIynKM0ho3TaxqZmNSTMphRMMA1AfZ7kY0o2BoLvHzPLBq3FNmieeoBusf6ftPyh+k9Lc4ltUU36k2PotWFdF5drvc/i6uxxJXuO0LFEvqp0u11YhkgQOfrnUMXKQM4RbejG4Mi07/zaa08p0rkYzmjop6AWA71ZAMYFxHolzIRzqdkcbOc4HMHF/vpKdw2bQIQHo4j6K2fC+JDUbFdOUY0GXn4CT8XBR2dyQNY0Hcz7Vm2UIMWw8U3RwQMEfgARI45+ue8OZiVGUYBnbLZegFeuF76ekpwmo8gqmFk+IQCLNXkMGssSHzkEA=
+  skip_cleanup: true
+  app:
+    - master: microposts-ui-staging
+    - stable: microopsts-ui-pro
+  on:
+    repo: cdelmoral/microposts-ui
+    branch:
+      - master
+      - stable
