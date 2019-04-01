@@ -1,72 +1,71 @@
-// $bootstrap-sass-asset-helper: true;
-// $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
-// .pagination {
-//   display: inline-block;
-//   padding-left: 0;
-//   margin: $line-height-computed 0;
-//   border-radius: $border-radius-base;
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: $line-height-computed 0;
+  border-radius: $border-radius-base;
 
-//   > li {
-//     display: inline; // Remove list-style and block-level defaults
-//     > button {
-//       position: relative;
-//       float: left; // Collapse white-space
-//       padding: $padding-base-vertical $padding-base-horizontal;
-//       line-height: $line-height-base;
-//       text-decoration: none;
-//       color: $pagination-color;
-//       background-color: $pagination-bg;
-//       border: 1px solid $pagination-border;
-//       margin-left: -1px;
-//     }
-//     &:first-child {
-//       > button {
-//         margin-left: 0;
-//         @include border-left-radius($border-radius-base);
-//       }
-//     }
-//     &:last-child {
-//       > button {
-//         @include border-right-radius($border-radius-base);
-//       }
-//     }
-//   }
+  > li {
+    display: inline; // Remove list-style and block-level defaults
+    > button {
+      position: relative;
+      float: left; // Collapse white-space
+      padding: $padding-base-vertical $padding-base-horizontal;
+      line-height: $line-height-base;
+      text-decoration: none;
+      color: $pagination-color;
+      background-color: $pagination-bg;
+      border: 1px solid $pagination-border;
+      margin-left: -1px;
+    }
+    &:first-child {
+      > button {
+        margin-left: 0;
+        @include border-left-radius($border-radius-base);
+      }
+    }
+    &:last-child {
+      > button {
+        @include border-right-radius($border-radius-base);
+      }
+    }
+  }
 
-//   > li > button {
-//     &:hover,
-//     &:focus {
-//       z-index: 2;
-//       color: $pagination-hover-color;
-//       background-color: $pagination-hover-bg;
-//       border-color: $pagination-hover-border;
-//       outline: 0;
-//     }
-//   }
+  > li > button {
+    &:hover,
+    &:focus {
+      z-index: 2;
+      color: $pagination-hover-color;
+      background-color: $pagination-hover-bg;
+      border-color: $pagination-hover-border;
+      outline: 0;
+    }
+  }
 
-//   > .active > button {
-//     &,
-//     &:hover,
-//     &:focus {
-//       z-index: 3;
-//       color: $pagination-active-color;
-//       background-color: $pagination-active-bg;
-//       border-color: $pagination-active-border;
-//       cursor: default;
-//       outline: 0;
-//     }
-//   }
+  > .active > button {
+    &,
+    &:hover,
+    &:focus {
+      z-index: 3;
+      color: $pagination-active-color;
+      background-color: $pagination-active-bg;
+      border-color: $pagination-active-border;
+      cursor: default;
+      outline: 0;
+    }
+  }
 
-//   > .disabled {
-//     > button,
-//     > button:hover,
-//     > button:focus {
-//       color: $pagination-disabled-color;
-//       background-color: $pagination-disabled-bg;
-//       border-color: $pagination-disabled-border;
-//       cursor: $cursor-disabled;
-//       outline: 0;
-//     }
-//   }
-// }
+  > .disabled {
+    > button,
+    > button:hover,
+    > button:focus {
+      color: $pagination-disabled-color;
+      background-color: $pagination-disabled-bg;
+      border-color: $pagination-disabled-border;
+      cursor: $cursor-disabled;
+      outline: 0;
+    }
+  }
+}
