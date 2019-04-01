@@ -5,7 +5,7 @@ import { User } from './user';
 import { UsersService } from './users.service';
 
 @Injectable()
-export class UserActivationResolve implements Resolve<User> {
+export class UserActivationResolve implements Resolve<boolean> {
 
   constructor(private usersService: UsersService, private router: Router) {}
 

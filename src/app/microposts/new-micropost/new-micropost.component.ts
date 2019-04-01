@@ -31,6 +31,8 @@ export class NewMicropostComponent {
         } catch (e) {
             this.flashService.show(e.message, {timeout: 5000, cssClass: 'alert-danger'});
         } finally {
+            this.flashService.show('Your micropost was posted!', {timeout: 5000, cssClass: 'alert-success'});
+            this.micropostContent = '';
             this.submitted = false;
         }
     }

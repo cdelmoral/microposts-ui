@@ -1,7 +1,5 @@
-// /* You can add global styles to this file, and also import other style files */
-// //@import "bootstrap-sprockets";
-$bootstrap-sass-asset-helper: true;
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 /* mixins, variables, etc. */
 

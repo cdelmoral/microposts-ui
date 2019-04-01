@@ -37,7 +37,7 @@ import { AuthService } from './auth/auth.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    FlashMessagesModule,
+    FlashMessagesModule.forRoot(),
     AuthModule,
     UsersModule,
     MicropostsModule,
