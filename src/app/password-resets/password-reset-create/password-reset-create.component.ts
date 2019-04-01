@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { FlashMessagesService } from 'angular2-flash-messages';
+// import { FlashMessagesService } from 'angular2-flash-messages';
 
 import { PasswordResetsService } from '../password-resets.service';
 
@@ -17,12 +17,12 @@ export class PasswordResetCreateComponent {
   constructor(
     private passwordResetsService: PasswordResetsService,
     private router: Router,
-    private flashService: FlashMessagesService
+    // private flashService: FlashMessagesService
   ) { }
 
   public async createResetToken() {
     let message = await this.passwordResetsService.createPasswordReset(this.email);
-    this.flashService.show(message, {timeout: 5000, cssClass: 'alert-success'})
+    // this.flashService.show(message, {timeout: 5000, cssClass: 'alert-success'})
     this.router.navigate(['/home']);
   }
 
