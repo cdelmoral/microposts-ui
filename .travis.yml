@@ -1,33 +1,21 @@
-dist: trusty
-sudo: required
 language: node_js
 node_js:
-  - 11.12.0
-before_install:
-  - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-  - sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-  - sudo apt-get update
-  - sudo apt-get install google-chrome-stable
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
+- 11.12.0
 notifications:
   email:
     on_success: change
     on_failure: always
+before script:
+- npm install -g @angular/cli@~7.3.7
 before_deploy:
-  - node_modules/angular-cli/bin/ng build
+- ng build --prod
 deploy:
   provider: heroku
+  strategy: api
   api_key:
-    secure: OfIzt9dJthKb0AxSzyQ0qdtDXxd8PQw7pyZfy78rNPwfayZzfh8pbeoWuTLfE58sAaGqAMGKsecSG0F9AYF6V/MNvKqvTPcEOAVa9C8sXAlwLwKRl4SbqM2jZGQOAJSkPHC7L7ayfEvMEvThodwcOBwna1Wdr6ah/pyL/kZIQxWJkRx811/AMC07sFQKLZW6zJYnJfQT6bDv5Xu+oR24WfkLSLeopctXE8Q5PmkUXyf5xaOd8UiCJ0Ar0c+mWPM9KXDiNyziIQcdj1n1jdKpWdxbzHp+7dvuZavjNGriMbTGmyqqPF3TupVBS8px4OzmKrI1tlvMrY8yHeFWx6Dtem3THukcWbTjNrrnYlF18f/pCqbTUiEIynKM0ho3TaxqZmNSTMphRMMA1AfZ7kY0o2BoLvHzPLBq3FNmieeoBusf6ftPyh+k9Lc4ltUU36k2PotWFdF5drvc/i6uxxJXuO0LFEvqp0u11YhkgQOfrnUMXKQM4RbejG4Mi07/zaa08p0rkYzmjop6AWA71ZAMYFxHolzIRzqdkcbOc4HMHF/vpKdw2bQIQHo4j6K2fC+JDUbFdOUY0GXn4CT8XBR2dyQNY0Hcz7Vm2UIMWw8U3RwQMEfgARI45+ue8OZiVGUYBnbLZegFeuF76ekpwmo8gqmFk+IQCLNXkMGssSHzkEA=
+    secure: krBkNAXvgookTlFQ/kMjSs6S6u1WByPKIX3FTm86vPE0CmY+6u6tkWdW5HceH4ahv5lCXB+u0fPKtye4albWjHpxMiwK+NbHcDYgLC1RmFNbuSs6sF9Hwxy4QkmTNzbllb389vz7Jm2I3nztCc3+ArR1H5A1J7iyxhkhJrqx3IaBSQhEW4q5Dkw9CNh55OWsv6PBB6EnVc3XlNRsKPdLJsctc/96LmQZMJhnVVpVd/S/4QNJ1Xr6bLhg2BbCXh5qWTZWZM19+Hi1yDc4/K2HABsBU6y2BuzJNDW0DcHV50a6ikVeygLS8eeePBU2quFTffse/YWgAYLoOZV3akvrhC3D6z/a2+okbJatWvhfXEI4dSH9kwHDcu7Zs5sWDDWhdIndkKSNRO622U8q6J9wQc+8y6hYGCbdEodlH3ndPKXSXIEm81/yFw+rf+mZn0qpTJSq6wNkaoBUVuqszaxLjwEjCquZfZkMTuLt3ZHzYlW/RYnpzGPZVXGetmJQIcZp66RF4pYK5RnttPDhiS3YXDVTbo0aybqFo0GTJhepwvR7aRVvRnddLD6LhPhngFAIXjHa6dm2DFRPDhzBptLeVzJsg/qUd3g/tIwic31/J/c0ikY+h2ecm4PFQkza0Kt3MFguHLYjYlxtlwmurVdD7kWIYI3ODbqW2LqCKrIviO4=
   skip_cleanup: true
-  app:
-    - master: microposts-ui-staging
-    - stable: microopsts-ui-pro
+  app: microposts-ui
   on:
     repo: cdelmoral/microposts-ui
-    branch:
-      - master
-      - stable
+    branch: master
