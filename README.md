@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/cdelmoral/microposts-ui.svg?branch=master)](https://travis-ci.org/cdelmoral/microposts-ui)
 
+This application is deployed in heroku, check it out here: https://microposts-ui.herokuapp.com/home
+
 # MicropostsUi
 
 Install dependencies with `npm install`. Before starting the application for development the environments file `src/app/environments/environment.ts` needs to be created:
